@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+pip-log.txt
+pip-delete-this-directory.txt
+__pycache__/
+
+# Databases and Data Files
+*.duckdb
+*.duckdb.wal
+*.duckdb.tmp
+*.parquet
+*.csv
+*.xlsx
+*.pdf
+
+# Project Shared Volumes (Docker)
+# Ignore all files in the data and reports volumes, but keep the directories
+volumes/data/*
+!volumes/data/.gitkeep
+volumes/reports/*
+!volumes/reports/.gitkeep
+
+# Environment and Secrets
+.env
+.env.*
+.env.local
+secrets/
+credentials.json
+*.pem
+*.key
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+.project
+.settings/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Airflow local files (if run outside docker)
+airflow.db
+standalone_admin_password.txt
+airflow-webserver.pid
+
+# Antigravity (Runtimes temporários e caches)
+.agents/ghost_runtime/
+.agents/.cache/
