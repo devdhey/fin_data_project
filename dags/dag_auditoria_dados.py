@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import sys
 
 # Mapeamento do caminho compartilhado dentro da infraestrutura central de Airflow
-sys.path.append('/opt/airflow/scripts/fin_data_project')
+sys.path.append('/opt/airflow/scripts/fin_data_project/scripts')
 
 from transformers.data_quality import run_data_quality_checks
 

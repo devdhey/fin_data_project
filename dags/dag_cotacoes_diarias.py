@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import sys
 
 # Garante que os módulos criados possam ser encontrados pelo Worker do Airflow
-sys.path.append('/opt/airflow/scripts/fin_data_project')
+sys.path.append('/opt/airflow/scripts/fin_data_project/scripts')
 
 # pyrefly: ignore [missing-import]
 from loaders.db_init import init_db
