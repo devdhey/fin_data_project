@@ -7,9 +7,15 @@ from datetime import datetime, timedelta
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Caminhos orientados ao contêiner (mapeados nos volumes do Airflow)
-RAW_PATH = '/app/data/raw'
-DB_PATH = '/app/data/fin_database.duckdb'
+# Caminhos relativos inteligentes (Windows Local vs Airflow Docker)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+if os.path.exists('/app/data'):
+    RAW_PATH = '/app/data/raw'
+    DB_PATH = '/app/data/fin_database.duckdb'
+else:
+    RAW_PATH = os.path.join(BASE_DIR, 'volumes', 'data', 'raw')
+    DB_PATH = os.path.join(BASE_DIR, 'volumes', 'data', 'fin_database.duckdb')
 
 # Escopo Real (15 ativos da carteira)
 ATIVOS_MVP = [

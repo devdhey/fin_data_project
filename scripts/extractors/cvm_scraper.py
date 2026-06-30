@@ -1,16 +1,24 @@
 import os
 import requests
+# pyrefly: ignore [missing-import]
 import duckdb
 import logging
 from datetime import datetime
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-REPORTS_PATH = '/app/reports'
-DB_PATH = '/app/data/fin_database.duckdb'
+# Caminhos relativos inteligentes (Windows Local vs Airflow Docker)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+if os.path.exists('/app/reports') or os.path.exists('/app/data'):
+    REPORTS_PATH = '/app/reports'
+    DB_PATH = '/app/data/fin_database.duckdb'
+else:
+    REPORTS_PATH = os.path.join(BASE_DIR, 'volumes', 'reports')
+    DB_PATH = os.path.join(BASE_DIR, 'volumes', 'data', 'fin_database.duckdb')
 ACOES_MVP = [
-    'BBAS3', 'EGIE3', 'CXSE3', 'ITUB4', 'VALE3', 
-    'PETR4', 'WEGE3', 'TAEE11', 'BBDC4', 'VIVT3'
+    'BBAS3', 'EGIE3', 'CXSE3', 'TAEE4', 'FIQE3',
+    'ABCB4', 'BBSE3'
 ]
 
 def fetch_cvm_reports():

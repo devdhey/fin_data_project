@@ -4,8 +4,13 @@ import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Caminho absoluto que o contêiner do Airflow vai enxergar (referência ao volume /app/data)
-DB_PATH = '/app/data/fin_database.duckdb'
+# Caminhos Inteligentes (Docker vs Local)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+if os.path.exists('/app/data'):
+    DB_PATH = '/app/data/fin_database.duckdb'
+else:
+    DB_PATH = os.path.join(BASE_DIR, 'volumes', 'data', 'fin_database.duckdb')
 
 def init_db():
     logging.info(f"Iniciando a conexão com o DuckDB em: {DB_PATH}")

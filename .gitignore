@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 .venv/
 venv/
+venv_fin/
 env/
 .pytest_cache/
 .coverage
@@ -64,3 +65,9 @@ airflow-webserver.pid
 # Antigravity (Runtimes temporários e caches)
 .agents/ghost_runtime/
 .agents/.cache/
+
+#dados
+data/
+volumes/
+
+docs/
