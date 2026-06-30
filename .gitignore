@@ -69,3 +69,5 @@ airflow-webserver.pid
 #dados
 data/
 volumes/
+
+docs/

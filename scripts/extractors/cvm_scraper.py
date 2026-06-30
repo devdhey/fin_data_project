@@ -1,5 +1,6 @@
 import os
 import requests
+# pyrefly: ignore [missing-import]
 import duckdb
 import logging
 from datetime import datetime
@@ -16,8 +17,8 @@ else:
     REPORTS_PATH = os.path.join(BASE_DIR, 'volumes', 'reports')
     DB_PATH = os.path.join(BASE_DIR, 'volumes', 'data', 'fin_database.duckdb')
 ACOES_MVP = [
-    'BBAS3', 'EGIE3', 'CXSE3', 'ITUB4', 'VALE3', 
-    'PETR4', 'WEGE3', 'TAEE11', 'BBDC4', 'VIVT3'
+    'BBAS3', 'EGIE3', 'CXSE3', 'TAEE4', 'FIQE3',
+    'ABCB4', 'BBSE3'
 ]
 
 def fetch_cvm_reports():
